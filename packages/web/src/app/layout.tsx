@@ -18,7 +18,8 @@ export default function RootLayout({
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <h1 className="text-xl font-bold text-pink-500">Kinship</h1>
             <div className="flex gap-4">
-              <a href="/" className="text-zinc-400 hover:text-white">Network</a>
+              <a href="/" className="text-zinc-400 hover:text-white">List</a>
+              <a href="/graph" className="text-zinc-400 hover:text-white">Graph</a>
               <a href="/add" className="text-zinc-400 hover:text-white">+ Add</a>
             </div>
           </div>
