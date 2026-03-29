@@ -3,6 +3,7 @@ import { Command } from 'commander';
 import { addCommand } from './commands/add.js';
 import { listCommand } from './commands/list.js';
 import { logCommand } from './commands/log.js';
+import { embedStaleCommand } from './commands/embed-stale.js';
 import { validateConfig } from './lib/config.js';
 
 const program = new Command();
@@ -20,5 +21,6 @@ program.hook('preAction', () => {
 program.addCommand(addCommand);
 program.addCommand(listCommand);
 program.addCommand(logCommand);
+program.addCommand(embedStaleCommand);
 
 program.parse();
