@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
-import { supabase } from '../lib/supabase.js';
+import { getSupabase } from '../lib/supabase.js';
 import { CONFIG } from '../lib/config.js';
 
 export const logCommand = new Command('log')
@@ -11,7 +11,8 @@ export const logCommand = new Command('log')
   .option('-d, --direction <dir>', 'Direction: inbound, outbound, mutual', 'mutual')
   .option('--date <date>', 'Date (YYYY-MM-DD)', new Date().toISOString().split('T')[0])
   .action(async (summary: string, options) => {
-    // Find person by name
+    const supabase = getSupabase();
+    
     if (!options.person) {
       console.error(chalk.red('Error:'), 'Please specify --person');
       process.exit(1);
@@ -31,7 +32,6 @@ export const logCommand = new Command('log')
 
     const person = persons[0];
 
-    // Create interaction
     const { error: insertError } = await supabase
       .from('interactions')
       .insert({
@@ -48,7 +48,6 @@ export const logCommand = new Command('log')
       process.exit(1);
     }
 
-    // Update last_contact_at
     await supabase
       .from('persons')
       .update({ last_contact_at: new Date(options.date).toISOString() })

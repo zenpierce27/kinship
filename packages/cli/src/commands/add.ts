@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
-import { supabase, type Person } from '../lib/supabase.js';
+import { getSupabase, type Person } from '../lib/supabase.js';
 import { CONFIG } from '../lib/config.js';
 
 export const addCommand = new Command('add')
@@ -14,6 +14,8 @@ export const addCommand = new Command('add')
   .option('--tier <tier>', 'Warmth tier', 'contact')
   .option('-n, --notes <notes>', 'Additional notes')
   .action(async (name: string, options) => {
+    const supabase = getSupabase();
+    
     const person: Partial<Person> = {
       user_id: CONFIG.userId,
       full_name: name,

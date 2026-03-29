@@ -1,10 +1,20 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { CONFIG } from './config.js';
 
-export const supabase = createClient(
-  CONFIG.supabaseUrl,
-  CONFIG.supabaseServiceKey || CONFIG.supabaseAnonKey
-);
+let _supabase: SupabaseClient | null = null;
+
+export function getSupabase(): SupabaseClient {
+  if (!_supabase) {
+    if (!CONFIG.supabaseUrl) {
+      throw new Error('KINSHIP_SUPABASE_URL not set');
+    }
+    _supabase = createClient(
+      CONFIG.supabaseUrl,
+      CONFIG.supabaseServiceKey || CONFIG.supabaseAnonKey
+    );
+  }
+  return _supabase;
+}
 
 export type Person = {
   id: string;

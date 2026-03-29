@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
 import Table from 'cli-table3';
-import { supabase } from '../lib/supabase.js';
+import { getSupabase } from '../lib/supabase.js';
 import { CONFIG } from '../lib/config.js';
 
 const TIER_COLORS: Record<string, (s: string) => string> = {
@@ -20,6 +20,8 @@ export const listCommand = new Command('list')
   .option('-c, --company <company>', 'Filter by company')
   .option('-l, --limit <n>', 'Limit results', '20')
   .action(async (options) => {
+    const supabase = getSupabase();
+    
     let query = supabase
       .from('persons')
       .select('id, full_name, current_company, job_title, warmth_tier, last_contact_at')
