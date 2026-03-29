@@ -1,0 +1,45 @@
+# Kinship - Relationship Intelligence Platform
+
+> An open-source relationship intelligence platform with AI-native semantic search and network visualization.
+
+## Overview
+
+Kinship goes beyond contact management to model the full complexity of human relationships - directionality, context, history, strength, and network effects.
+
+## Key Features
+
+- Semantic Search: Find contacts by meaning ("who works in renewable energy?")
+- Network Graph: Visualize relationships and connection paths
+- Warmth Tiers: Track relationship strength (stranger → inner circle)
+- Interaction History: Log calls, meetings, emails
+- Decay Detection: Alerts when relationships need attention
+
+## Architecture
+
+- Database: Supabase (PostgreSQL + pgvector)
+- CLI: TypeScript with Commander.js
+- Web: Next.js with React
+- Embeddings: Google Gemini (gemini-embedding-001)
+
+## Installation
+
+```bash
+npm install -g @kinship/cli
+kinship add "Name" --company "Company" --tier friend
+kinship search "who knows about AI?"
+```
+
+## API
+
+CLI Commands:
+- kinship add <name> [--email] [--company] [--tier] [--met]
+- kinship list [--tier] [--company]
+- kinship log <summary> --person <name> [--type]
+- kinship search <query>
+- kinship decay [--dry-run]
+
+## Links
+
+- Repository: https://github.com/zenpierce27/kinship
+- Documentation: https://github.com/zenpierce27/kinship/tree/main/docs
+- License: MIT

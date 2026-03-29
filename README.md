@@ -1,6 +1,12 @@
-# Kinship
+<p align="center">
+  <img src="assets/banner.png" alt="Kinship" width="600">
+</p>
 
-**Relationship Intelligence Platform**
+<h1 align="center">Kinship</h1>
+
+<p align="center">
+  <strong>Relationship Intelligence Platform</strong>
+</p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
