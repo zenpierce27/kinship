@@ -1,0 +1,12 @@
+{
+  "name": "kinship",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "cli": "pnpm --filter @kinship/cli",
+    "web": "pnpm --filter @kinship/web",
+    "dev": "pnpm --filter @kinship/web dev"
+  }
+}
