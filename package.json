@@ -5,8 +5,11 @@
     "packages/*"
   ],
   "scripts": {
-    "cli": "pnpm --filter @kinship/cli",
-    "web": "pnpm --filter @kinship/web",
-    "dev": "pnpm --filter @kinship/web dev"
+    "cli": "npm run --workspace @kinship/cli",
+    "web": "npm run --workspace @kinship/web",
+    "dev": "npm run dev --workspace @kinship/web",
+    "build": "npm run build --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "test": "npm run test:run --workspace @kinship/cli"
   }
 }

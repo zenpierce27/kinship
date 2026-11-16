@@ -29,6 +29,7 @@ export type Person = {
   met_date?: string;
   warmth_tier: string;
   notes?: string;
+  embedding_stale?: boolean | null;
   created_at: string;
   updated_at: string;
   last_contact_at?: string;

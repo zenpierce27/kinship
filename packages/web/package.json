@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3456",
     "build": "next build",
-    "start": "next start -p 3456"
+    "start": "next start -p 3456",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "next": "^14.2.0",
