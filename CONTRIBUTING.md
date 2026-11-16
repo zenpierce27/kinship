@@ -6,7 +6,7 @@ Thanks for your interest in contributing! Kinship is an open-source relationship
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 20+
 - npm (included with Node.js)
 - Supabase account (for database)
 - Google AI API key (for embeddings)

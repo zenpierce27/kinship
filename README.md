@@ -26,7 +26,7 @@ An open-source relationship intelligence platform that goes beyond contact manag
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 20+
 - npm (included with Node.js)
 - [Supabase](https://supabase.com) account
 - [Google AI](https://ai.google.dev) API key (for embeddings)
