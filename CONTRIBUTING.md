@@ -6,8 +6,8 @@ Thanks for your interest in contributing! Kinship is an open-source relationship
 
 ### Prerequisites
 
-- Node.js 18+
-- pnpm
+- Node.js 20+
+- npm (included with Node.js)
 - Supabase account (for database)
 - Google AI API key (for embeddings)
 
@@ -21,7 +21,7 @@ Thanks for your interest in contributing! Kinship is an open-source relationship
 
 2. Install dependencies:
    ```bash
-   pnpm install
+   npm ci --ignore-scripts
    ```
 
 3. Set up environment variables:
@@ -29,7 +29,7 @@ Thanks for your interest in contributing! Kinship is an open-source relationship
    export KINSHIP_SUPABASE_URL="your-supabase-url"
    export KINSHIP_SUPABASE_ANON_KEY="your-anon-key"
    export KINSHIP_SUPABASE_SERVICE_KEY="your-service-key"
-   export GEMINI_API_KEY="your-gemini-key"
+   export GOOGLE_API_KEY="your-gemini-key"
    ```
 
 4. Run database migrations:
@@ -46,7 +46,7 @@ Thanks for your interest in contributing! Kinship is an open-source relationship
 6. Run the web UI:
    ```bash
    cd packages/web
-   pnpm dev
+   npm run dev
    ```
 
 ## Project Structure
@@ -79,7 +79,7 @@ kinship/
 1. Fork the repo
 2. Create a feature branch: `git checkout -b feature/my-feature`
 3. Make your changes
-4. Run tests: `pnpm test`
+4. Run tests: `npm test`
 5. Commit with clear messages
 6. Push and open a PR
 

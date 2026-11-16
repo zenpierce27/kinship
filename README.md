@@ -26,8 +26,8 @@ An open-source relationship intelligence platform that goes beyond contact manag
 
 ### Prerequisites
 
-- Node.js 18+
-- pnpm
+- Node.js 20+
+- npm (included with Node.js)
 - [Supabase](https://supabase.com) account
 - [Google AI](https://ai.google.dev) API key (for embeddings)
 
@@ -39,13 +39,13 @@ git clone https://github.com/zenpierce27/kinship.git
 cd kinship
 
 # Install dependencies
-pnpm install
+npm ci --ignore-scripts
 
 # Set up environment
 export KINSHIP_SUPABASE_URL="https://your-project.supabase.co"
 export KINSHIP_SUPABASE_ANON_KEY="your-anon-key"
 export KINSHIP_SUPABASE_SERVICE_KEY="your-service-key"
-export GEMINI_API_KEY="your-gemini-key"
+export GOOGLE_API_KEY="your-gemini-key"
 ```
 
 ### Database Setup
@@ -96,7 +96,7 @@ echo "NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co" > .env.local
 echo "NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key" >> .env.local
 
 # Run development server
-pnpm dev
+npm run dev
 # Open http://localhost:3456
 ```
 
@@ -147,3 +147,20 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
 ---
 
 Built with ❤️ for meaningful connections.
+
+## Local checks
+
+```bash
+npm ci --ignore-scripts
+npm test
+npm run typecheck
+npm run build
+```
+
+The unit tests cover contact text formatting used by the CLI and require no
+credentials or network services. They do not verify authentication, database
+isolation, command writes, or live integrations. For an offline web build, set `NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321`
+and `NEXT_PUBLIC_SUPABASE_ANON_KEY=build-only-placeholder` in the shell (as CI
+does). These values initialize the client during compilation; they are not
+working credentials. Use a disposable test project when checking connected
+behavior, never production personal data.
